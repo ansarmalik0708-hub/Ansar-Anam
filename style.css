@@ -82,3 +82,42 @@
 .gallery figure {
   transition: opacity .8s ease, transform .8s ease;
 }
+.anam-preferences{
+  gap:24px;
+}
+
+.anam-preferences h2{
+  max-width:850px;
+  font-size:clamp(2.5rem,5vw,4.8rem);
+  line-height:.95;
+}
+
+.preference-card{
+  width:min(850px,100%);
+  padding:clamp(28px,5vw,55px);
+  background:#ffffff0d;
+  border:1px solid #ffffff20;
+  border-radius:28px;
+  box-shadow:0 25px 80px #0008;
+  backdrop-filter:blur(12px);
+  text-align:left;
+}
+
+.preference-card p{
+  margin:0 0 22px;
+  color:#eadde5;
+  font:1.2rem/1.75 Georgia,serif;
+}
+
+.preference-card p:last-child{
+  margin-bottom:0;
+}
+
+.preference-final{
+  color:#fff8fb!important;
+}
+
+.preference-final em{
+  color:#ff91b5;
+  font-size:1.3em;
+}
