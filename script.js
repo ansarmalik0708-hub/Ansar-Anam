@@ -173,3 +173,42 @@ if (galleryImages.length > 1) {
 
   }, 3500);
 }
+/* =========================
+   ROSE PETAL ANIMATION
+========================= */
+
+const petals = document.querySelector("#petals");
+
+function createPetal() {
+  if (!petals) return;
+
+  const petal = document.createElement("span");
+
+  petal.className = "petal";
+
+  petal.style.left = Math.random() * 100 + "vw";
+
+  const size = 10 + Math.random() * 12;
+  petal.style.width = size + "px";
+  petal.style.height = size * 1.4 + "px";
+
+  petal.style.animationDuration =
+    5 + Math.random() * 5 + "s";
+
+  petal.style.animationDelay =
+    Math.random() * 2 + "s";
+
+  petals.appendChild(petal);
+
+  setTimeout(() => {
+    petal.remove();
+  }, 12000);
+}
+
+/* धीरे-धीरे petals गिरेंगे */
+setInterval(createPetal, 650);
+
+/* शुरुआत में थोड़े extra petals */
+for (let i = 0; i < 12; i++) {
+  setTimeout(createPetal, i * 250);
+}
