@@ -121,3 +121,52 @@
   color:#ff91b5;
   font-size:1.3em;
 }
+/* =========================
+   ROSE PETALS
+========================= */
+
+#petals {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 999;
+}
+
+.petal {
+  position: absolute;
+  top: -60px;
+  width: 14px;
+  height: 20px;
+  background: #ff6f9f;
+  border-radius: 100% 0 100% 0;
+  opacity: 0.85;
+  transform: rotate(45deg);
+  animation: petalFall linear forwards;
+}
+
+@keyframes petalFall {
+  0% {
+    transform:
+      translate3d(0, -60px, 0)
+      rotate(0deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.9;
+  }
+
+  50% {
+    transform:
+      translate3d(60px, 50vh, 0)
+      rotate(180deg);
+  }
+
+  100% {
+    transform:
+      translate3d(-80px, 110vh, 0)
+      rotate(420deg);
+    opacity: 0;
+  }
+}
