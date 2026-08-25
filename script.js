@@ -1,0 +1,5 @@
+const music=document.querySelector("#music"),open=document.querySelector("#open"),cake=document.querySelector("#cake"),hint=document.querySelector("#hint"),hearts=document.querySelector("#hearts");
+open.onclick=()=>{music.play().catch(()=>{});open.textContent="Our story begins… ♥";setTimeout(()=>document.querySelector(".letter").scrollIntoView({behavior:"smooth"}),700)};
+const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add("visible")),{threshold:.12});document.querySelectorAll(".reveal").forEach(x=>io.observe(x));
+function heart(){let x=document.createElement("span");x.className="heart";x.textContent=Math.random()>.2?"♥":"✦";x.style.left=Math.random()*100+"vw";x.style.fontSize=10+Math.random()*20+"px";x.style.animationDuration=5+Math.random()*6+"s";hearts.appendChild(x);setTimeout(()=>x.remove(),12000)}setInterval(heart,900);
+cake.onclick=()=>{hint.textContent="Happy Birthday, Anam! ✨ Make your wish.";for(let i=0;i<35;i++)setTimeout(heart,i*45);setTimeout(()=>document.querySelector(".final").scrollIntoView({behavior:"smooth"}),1700)};
