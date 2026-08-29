@@ -30,32 +30,61 @@ if (musicBtn && music) {
 }
 
 if (open) {
-  open.addEventListener("click", async () => {
-    try {
-      if (music) {
-        await music.play();
-        musicPlaying = true;
+ open.addEventListener("click", async () => {
 
-        if (musicBtn) {
-          musicBtn.innerHTML = "⏸ Pause Music";
-        }
-      }
-    } catch (error) {
-      console.log("Music needs manual play:", error);
+  try {
+    await music.play();
+    musicPlaying = true;
+
+    if (musicBtn) {
+      musicBtn.innerHTML = "⏸ Pause Music";
     }
 
-    open.textContent = "Our story begins… ♥";
+  } catch (error) {
+    console.log("Music needs manual play:", error);
+  }
 
+  open.textContent = "Our story begins… ♥";
+
+  /* =========================
+     BIG ROSE PETAL CELEBRATION
+  ========================= */
+
+  if (typeof createPetal === "function") {
+
+    /* Extra petals for 10 seconds */
+    for (let i = 0; i < 45; i++) {
+      setTimeout(() => {
+        createPetal();
+      }, i * 180);
+    }
+
+  }
+
+  /* =========================
+     BIG HEART BURST
+  ========================= */
+
+  for (let i = 0; i < 50; i++) {
     setTimeout(() => {
-      const letter = document.querySelector(".letter");
+      heart();
+    }, i * 80);
+  }
 
-      if (letter) {
-        letter.scrollIntoView({
-          behavior: "smooth"
-        });
-      }
-    }, 700);
-  });
+  /* Scroll to letter */
+  setTimeout(() => {
+
+    const letter = document.querySelector(".letter");
+
+    if (letter) {
+      letter.scrollIntoView({
+        behavior: "smooth"
+      });
+    }
+
+  }, 700);
+
+});
 }
 
 
